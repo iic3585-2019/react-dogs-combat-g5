@@ -15,7 +15,6 @@ const DogTeamReducer = (state = intitialState, action) => {
 
     switch (action.type) {
         case types.CATCH:
-            console.log("heee"+action.payload['current_dog'].img)
             let {collection} = state
             return {...state, collection: [...collection, action.payload['current_dog']]}
         default:

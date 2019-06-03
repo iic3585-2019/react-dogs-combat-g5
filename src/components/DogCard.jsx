@@ -8,6 +8,7 @@ class DogCard extends Component {
         super(props)
 
         this.state = {
+            win:""
         }
 
         this.random = this.random.bind(this)
@@ -45,8 +46,13 @@ class DogCard extends Component {
                 }
         }
         if (win) {
+            this.setState({ win: "Has Capturado a este doggo!" })
             this.props.catchDog({current_dog})
         }
+        else{
+            this.setState({ win: "Has Perdido :c" })
+        }
+        
         
     }
 
@@ -66,6 +72,12 @@ class DogCard extends Component {
                 <div>
                     <Button color="danger" onClick={this.battle}>A Batallar!</Button>
                 </div>
+                <div>
+                    {this.state.win}
+                </div>
+                
+                
+                
             </div>
         )
     }
