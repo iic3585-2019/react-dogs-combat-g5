@@ -9,8 +9,10 @@ class DogCard extends Component {
 
         this.state = {
         }
+
         this.random = this.random.bind(this)
         this.explore = this.explore.bind(this)
+        this.battle = this.battle.bind(this)
     }
 
     random(img) {
@@ -23,8 +25,33 @@ class DogCard extends Component {
         this.random(json.message)
       }
 
+    battle(){
+        const {first} = this.props.team
+        const {second} = this.props.team
+        const {current_dog} = this.props
+        let win = false
+        switch(current_dog.atk){
+            case "Piedra":
+                if (first.atk == "Papel" || second.atk == "Papel") {
+                    win=true
+                }
+            case "Papel":
+                if (first.atk == "Tijera" || second.atk == "Tijera") {
+                    win=true
+                }
+            case "Tijera":
+                if (first.atk == "Piedra" || second.atk == "Piedra") {
+                    win=true
+                }
+        }
+        if (win) {
+            this.props.catchDog({current_dog})
+        }
+        
+    }
+
     render() {
-        const { current_dog } = this.props        
+        const { current_dog } = this.props       
         return (
             <div>
                 <div>
@@ -36,6 +63,9 @@ class DogCard extends Component {
                 <div>
                     <img src={current_dog.img} alt=""/>
                 </div>
+                <div>
+                    <Button color="danger" onClick={this.battle}>A Batallar!</Button>
+                </div>
             </div>
         )
     }
@@ -43,7 +73,8 @@ class DogCard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        current_dog: state.DogCardReducer['current_dog']
+        current_dog: state.DogCardReducer['current_dog'],
+        team: state.DogTeamReducer['team']
     }
 }
 

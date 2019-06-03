@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux"
 import ActionCreators from "../store/action"
-import { Button } from 'react-bulma-components';
+import { Button, Columns } from 'react-bulma-components';
 
 class DogCollection extends Component {
     constructor(props) {
@@ -21,6 +21,30 @@ class DogCollection extends Component {
                     <img src={collection[0].img}/>
                     <p>Ataque: {collection[0].atk}</p>
                 </div>
+                <Fragment>
+                    <Columns>
+                        {collection.map(item => (
+                            <Columns.Column>
+                                <div>
+                                    <img src={item.img}/>
+                                </div>
+                                <div>
+                                    <p>{item.atk}</p>
+                                </div>
+                                <Columns>
+                                    <Columns.Column>
+                                        <Button color="primary">Asignar como primer miembro</Button>
+                                    </Columns.Column>
+                                    <Columns.Column>
+                                        <Button color="primary">Asignar como segundo miembro</Button>
+                                    </Columns.Column>
+                                </Columns>
+                                
+                            </Columns.Column>
+                        ))}
+                    </Columns>
+                </Fragment>
+                
                 {/* <div>
                     <Button color="primary" onClick={this.explore}>Explorar doggos</Button>
                 </div>

@@ -14,11 +14,10 @@ const DogTeamReducer = (state = intitialState, action) => {
     // 'Desempaqueto' el estado actual
 
     switch (action.type) {
-        // case types.RANDOM:
-        //     let atks = ["Piedra", "Papel", "Tijera"]
-        //     let api_image = action.payload['img']
-        //     let random_atk = atks[Math.floor(Math.random() * atks.length)]
-        //     return { ...state, current_dog: {atk:random_atk, "img":api_image }}
+        case types.CATCH:
+            console.log("heee"+action.payload['current_dog'].img)
+            let {collection} = state
+            return {...state, collection: [...collection, action.payload['current_dog']]}
         default:
             return state
     }
