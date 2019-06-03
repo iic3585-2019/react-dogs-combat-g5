@@ -52,6 +52,7 @@ class DogCard extends Component {
         else{
             this.setState({ win: "Has Perdido :c" })
         }
+        this.explore()
         
         
     }

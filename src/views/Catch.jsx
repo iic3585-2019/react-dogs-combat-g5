@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import "../styles/Home.css"
 import DogCard from '../components/DogCard';
 
 export default class Catch extends Component {

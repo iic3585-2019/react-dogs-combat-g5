@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CounterRedux from '../components/CounterRedux'
 import DogTeam from '../components/DogTeam';
 
 
