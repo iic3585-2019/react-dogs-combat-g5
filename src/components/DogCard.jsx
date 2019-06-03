@@ -75,6 +75,9 @@ class DogCard extends Component {
                 <div>
                     {this.state.win}
                 </div>
+                <div>
+                    <p className="indent"><br/></p>
+                </div>
                 
                 
                 

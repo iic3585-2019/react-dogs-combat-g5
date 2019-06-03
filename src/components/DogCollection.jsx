@@ -8,12 +8,20 @@ class DogCollection extends Component {
         super(props)
 
         this.state = {
+            assign:""
         }
-        // this.random = this.random.bind(this)
-        // this.explore = this.explore.bind(this)
+
     }
 
     change = (ev) => {
+        let where = ""
+        if(ev.target.id=="first"){
+            where="primer"
+        }
+        else{
+            where="segundo"
+        }
+        this.setState({assign:"Se ha añadido el doggo a tu equipo como "+where+" miembro"})
         const {collection} = this.props
         this.props.dogEquip({type: ev.target.id, change_dog: collection[ev.target.value]})
     }
@@ -45,13 +53,9 @@ class DogCollection extends Component {
                         ))}
                     </Columns>
                 </Fragment>
-                
-                {/* <div>
-                    <Button color="primary" onClick={this.explore}>Explorar doggos</Button>
-                </div>
                 <div>
-                    <img src={current_dog.img} alt=""/>
-                </div> */}
+                    <p>{this.state.assign}</p>
+                </div>
             </div>
         )
     }

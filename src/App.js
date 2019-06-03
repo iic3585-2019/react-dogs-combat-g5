@@ -25,7 +25,7 @@ const Header = () => {
       <div className="navbar-brand is-active">
         <Link className="navbar-item" to="/">Atrapa doggos!</Link>
         <Link className="navbar-item" to="/team">Equipo doggo</Link>
-        <Link className="navbar-item" to="/collection">Colección de Doggos</Link>
+        <Link className="navbar-item" to="/collection">Colección</Link>
       </div>
     </nav>
   )

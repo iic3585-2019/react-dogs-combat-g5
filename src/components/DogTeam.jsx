@@ -37,6 +37,9 @@ class DogTeam extends Component {
                         </Columns.Column>
                     </Columns>
                 </div>
+                <div>
+                    <br/>
+                </div>
             </div>
         )
     }
