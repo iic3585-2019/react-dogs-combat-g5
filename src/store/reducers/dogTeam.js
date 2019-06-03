@@ -17,11 +17,16 @@ const DogTeamReducer = (state = intitialState, action) => {
     // 'Desempaqueto' el estado actual
 
     switch (action.type) {
-        // case types.RANDOM:
-        //     let atks = ["Piedra", "Papel", "Tijera"]
-        //     let api_image = action.payload['img']
-        //     let random_atk = atks[Math.floor(Math.random() * atks.length)]
-        //     return { ...state, current_dog: {atk:random_atk, "img":api_image }}
+        case types.EQUIP:
+            const {team} = state
+            if(action.payload['type'] === 'first'){
+                return { ...state, team:{first: action.payload['change_dog'],second:team.second}}
+            }
+            else if(action.payload['type'] === 'second'){
+                console.log("entre al if")
+                return { ...state, team:{second: action.payload['change_dog'],first:team.first}}
+            }
+            
         default:
             return state
     }

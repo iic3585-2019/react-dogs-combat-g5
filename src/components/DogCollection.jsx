@@ -13,14 +13,15 @@ class DogCollection extends Component {
         // this.explore = this.explore.bind(this)
     }
 
+    change = (ev) => {
+        const {collection} = this.props
+        this.props.dogEquip({type: ev.target.id, change_dog: collection[ev.target.value]})
+    }
+
     render() {
         const { collection } = this.props        
         return (
             <div>
-                <div>
-                    <img src={collection[0].img}/>
-                    <p>Ataque: {collection[0].atk}</p>
-                </div>
                 <Fragment>
                     <Columns>
                         {collection.map(item => (
@@ -33,10 +34,10 @@ class DogCollection extends Component {
                                 </div>
                                 <Columns>
                                     <Columns.Column>
-                                        <Button color="primary">Asignar como primer miembro</Button>
+                                        <Button color="primary" id="first" value={collection.indexOf(item)} onClick={this.change}>Asignar como primer miembro</Button>
                                     </Columns.Column>
                                     <Columns.Column>
-                                        <Button color="primary">Asignar como segundo miembro</Button>
+                                        <Button color="primary" id="second" value={collection.indexOf(item)} onClick={this.change}>Asignar como segundo miembro</Button>
                                     </Columns.Column>
                                 </Columns>
                                 
