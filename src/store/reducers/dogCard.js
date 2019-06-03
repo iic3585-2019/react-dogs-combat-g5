@@ -9,7 +9,6 @@ const intitialState = {
 
 const DogCardReducer = (state = intitialState, action) => {
     // 'Desempaqueto' el estado actual
-    let { current_dog } = state
 
     switch (action.type) {
         case types.RANDOM:

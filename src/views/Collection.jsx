@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import "../styles/Home.css"
-import DogCard from '../components/DogCard';
+import DogCollection from '../components/DogCollection';
 
-export default class Catch extends Component {
+export default class Collection extends Component {
     render() {
         return (
             <div className="section">
                 <div className="container has-text-centered has-text-weight-bold">
-                    <DogCard/>
+                    Estos son los doggos que has capturado
+                    <DogCollection/>
                 </div>
             </div>
         )

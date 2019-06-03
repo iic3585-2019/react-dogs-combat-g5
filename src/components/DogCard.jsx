@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import ActionCreators from "../store/action"
+import { Button } from 'react-bulma-components';
 
 class DogCard extends Component {
     constructor(props) {
@@ -24,12 +25,17 @@ class DogCard extends Component {
 
     render() {
         const { current_dog } = this.props        
-        const img_link = "https://images.dog.ceo/breeds/mountain-bernese/n02107683_3988.jpg"
         return (
             <div>
-                <h1>Busca al doggo que desees atrapar</h1>
-                <button onClick={this.explore}>Explorar doggos</button>
-                <img src={current_dog.img}/>
+                <div>
+                    <h1>Busca al doggo que desees atrapar</h1>
+                </div>
+                <div>
+                    <Button color="primary" onClick={this.explore}>Explorar doggos</Button>
+                </div>
+                <div>
+                    <img src={current_dog.img} alt=""/>
+                </div>
             </div>
         )
     }
